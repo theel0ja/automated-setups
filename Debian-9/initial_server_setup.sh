@@ -72,6 +72,9 @@ chown --recursive "${USERNAME}":"${USERNAME}" "${home_directory}/.ssh"
 
 # Disable root SSH login with password
 sed --in-place 's/^PermitRootLogin.*/PermitRootLogin prohibit-password/g' /etc/ssh/sshd_config
+
+# Disable AcceptEnv for LANG
+sed --in-place 's/^AcceptEnv LANG LC_*/#AcceptEnv LANG LC_*/g' /etc/ssh/sshd_config
 if sshd -t -q; then
     systemctl restart sshd
 fi
@@ -80,5 +83,5 @@ fi
 ufw allow OpenSSH
 ufw --force enable
 
-
-reboot
+# Reboot machine
+reboot now
