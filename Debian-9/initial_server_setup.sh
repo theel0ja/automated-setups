@@ -24,8 +24,12 @@ OTHER_PUBLIC_KEYS_TO_ADD=(
 ### SCRIPT LOGIC ###
 ####################
 
+# Update
+apt update
+apt upgrade -y
+
 # Install packages
-sudo apt install ufw git sudo -y
+apt install ufw git sudo -y
 
 # Add sudo user and grant privileges
 useradd --create-home --shell "/bin/bash" --groups sudo "${USERNAME}"
@@ -75,3 +79,6 @@ fi
 # Add exception for SSH and then enable UFW firewall
 ufw allow OpenSSH
 ufw --force enable
+
+
+reboot
