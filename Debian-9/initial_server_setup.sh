@@ -85,5 +85,9 @@ fi
 ufw allow OpenSSH
 ufw --force enable
 
+# Ask set temporary password
+echo "Give temporary password for $USERNAME"
+passwd $USERNAME
+
 # Reboot machine
 reboot now
