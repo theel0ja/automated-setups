@@ -4,6 +4,7 @@
 ssh-keygen
 
 echo "Please upload your key to Github."
+echo "https://github.com/settings/keys"
 
 echo ""
 echo ""
